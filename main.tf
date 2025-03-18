@@ -26,3 +26,9 @@ resource "aws_security_group" "main" {
     ipv6_cidr_blocks = ["::/0"]
   }
 }
+
+resource "aws_docdb_cluster_parameter_group" "main" {
+  family      = "docdb3.6"
+  name        = "${local.name_prefix}-cluster-pg"
+  description = "docdb cluster parameter group"
+}
