@@ -32,3 +32,14 @@ resource "aws_docdb_cluster_parameter_group" "main" {
   name        = "${local.name_prefix}-cluster-pg"
   description = "docdb cluster parameter group"
 }
+
+resource "aws_docdb_cluster" "docdb" {
+  cluster_identifier      = "${local.name_prefix}-cluster"
+  engine                  = var.engine
+  engine_version          = var.engine_version
+  master_username         = "foo"
+  master_password         = "mustbeeightchars"
+  backup_retention_period = var.backup_retention_period
+  preferred_backup_window = var.preferred_backup_window
+  skip_final_snapshot     = var.skip_final_snapshot
+}
