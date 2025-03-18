@@ -10,3 +10,5 @@ variable "backup_retention_period" {}
 variable "preferred_backup_window" {}
 variable "skip_final_snapshot" {}
 variable "instance_class" {}
+variable "engine_family" {}
+variable "instance_count" {}
