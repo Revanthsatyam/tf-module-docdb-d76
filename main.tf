@@ -49,6 +49,9 @@ resource "aws_docdb_cluster" "docdb" {
   storage_encrypted               = true
   kms_key_id                      = var.kms_key
   tags                            = merge(local.tags, { Name = "${local.name_prefix}-cluster" })
+  lifecycle {
+    ignore_changes = [master_username, master_password]
+  }
 }
 
 resource "aws_docdb_cluster_instance" "cluster_instances" {
